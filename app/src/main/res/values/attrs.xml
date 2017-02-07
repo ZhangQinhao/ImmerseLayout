@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Title布局相关-->
+    <declare-styleable name="ImmerseTitleLayout">
+        <!--true   则沉浸式布局中内容也一起沉浸在状态栏中-->
+        <attr name="need_immerse" format="boolean"/>
+    </declare-styleable>
+</resources>

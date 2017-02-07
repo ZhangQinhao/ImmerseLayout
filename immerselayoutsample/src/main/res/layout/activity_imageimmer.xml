@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.monke.immerselayout.ImmerseFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:need_immerse="true">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:src="@drawable/ivbg"
+        android:scaleType="centerCrop"/>
+    <com.monke.immerselayout.ImmerseLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="布局底层ImageView沉浸,同时再次使用了一次沉浸式布局，避免内部内容也沉浸在状态栏"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:background="#90ffffff"/>
+    </com.monke.immerselayout.ImmerseLinearLayout>
+    
+</com.monke.immerselayout.ImmerseFrameLayout>

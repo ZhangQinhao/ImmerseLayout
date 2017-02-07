@@ -1,1 +1,1 @@
-include ':app', ':immerselayoutsample'
+include ':app', ':sample'

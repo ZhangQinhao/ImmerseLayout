@@ -1,13 +1,22 @@
 # ImmerseLayout
-满足普通开发者对于沉浸式界面的开发  
-ImmerserLinearLayout   →  LinearLayout  
-ImmerserFrameLayout  →  FrameLayout  
-ImmerseRelativeLayout  →  RelativeLayout  
-ImmerseTableLayout → TableLayout  
-
+满足普通开发者对于沉浸式界面的开发
+ImmerserLinearLayout   →  LinearLayout
+ImmerserFrameLayout  →  FrameLayout
+ImmerseRelativeLayout  →  RelativeLayout
+ImmerseTableLayout → TableLayout
 在需要沉浸的页面合理使用ImmerseLayout替换原本布局。  
+  
+### 引入  
 
-### 如果仅仅是需要底层布局的background沉浸，则将最外层布局替换为相应的ImmerseLayout布局，其余布局不变。  
+ - Android Studio  
+
+在build.gradle引入  `compile 'com.zhangmonke:ImmerseLayout:1.0.1'`  
+
+ - eclipse
+
+建议使用As，方便版本更新。实在不行，只有复制粘贴源码了。
+
+### 如果仅仅是需要底层布局的background沉浸，则将最外层布局替换为相应的ImmerseLayout布局，其余布局不变。
 ![enter description here][1]
 
 ``` stylus
@@ -28,7 +37,7 @@ ImmerseTableLayout → TableLayout
 </com.monke.immerselayout.ImmerseFrameLayout>
 ```
 
-### 如果对背景图片显示比例要求较高，则需要使用双重ImmerseLayout嵌套  
+### 如果对背景图片显示比例要求较高，则需要使用双重ImmerseLayout嵌套
 ![enter description here][2]
 
 ``` stylus
@@ -58,7 +67,7 @@ ImmerseTableLayout → TableLayout
     
 </com.monke.immerselayout.ImmerseFrameLayout>
 ```
-#### 如果只是要标题栏等界面沉浸  
+#### 如果只是要标题栏等界面沉浸
 ![enter description here][3]
 
 ``` stylus

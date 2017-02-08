@@ -1,13 +1,3 @@
-/*
- * Copyright (C) 2016 ZED, Inc.
- *
- * This code contain confidential information from ZED Technologies Co.,Ltd.,
- * which is intended only for the person or entity whose address is listed above.
- * Any use of the information contained herein in any way  (including, but not limited to,
- * total or partial disclosure, reproduction, or dissemination)
- * by persons other than the intended recipient(s) is prohibited
- *
- */
 package com.monke.immerselayout;
 
 import android.annotation.SuppressLint;
@@ -17,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
- * <p>类描述：沉浸FrameLayout布局</p>
- * <p>创建人：Monke</p>
- * <p>创建时间：2017/1/17</p>
+ * 类描述：沉浸FrameLayout布局
+ * 创建人：Monke
+ * 创建时间：2017/1/17
  *
  * @version V1.0
  */

@@ -10,9 +10,9 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 /**
- * <p>类描述：沉浸布局管理器</p>
- * <p>创建人：Monke</p>
- * <p>创建时间：2017/1/17</p>
+ * 类描述：沉浸布局管理器
+ * 创建人：Monke
+ * 创建时间：2017/1/17
  * @version V1.0
  */
 public class ImmerseManager {

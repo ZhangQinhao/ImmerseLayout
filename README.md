@@ -1,9 +1,10 @@
 # ImmerseLayout
 满足普通开发者对于沉浸式界面的开发
-ImmerserLinearLayout   →  LinearLayout
-ImmerserFrameLayout  →  FrameLayout
-ImmerseRelativeLayout  →  RelativeLayout
-ImmerseTableLayout → TableLayout
+ImmerserLinearLayout   →  LinearLayout  
+ImmerserFrameLayout  →  FrameLayout  
+ImmerseRelativeLayout  →  RelativeLayout  
+ImmerseTableLayout → TableLayout  
+
 在需要沉浸的页面合理使用ImmerseLayout替换原本布局。
 
 ### 如果仅仅是需要底层布局的background沉浸，则将最外层布局替换为相应的ImmerseLayout布局，其余布局不变。

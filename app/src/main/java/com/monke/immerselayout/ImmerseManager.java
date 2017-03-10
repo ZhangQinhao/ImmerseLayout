@@ -72,7 +72,7 @@ public class ImmerseManager {
             if (viewGroup != null && viewGroup instanceof IimmerseView) {
                 ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
                 FrameLayout content = (FrameLayout) ((Activity) viewGroup.getContext()).findViewById(android.R.id.content);
-                int height = viewGroup.getHeight();
+                int height = layoutParams.height;
                 if (content.getChildAt(0) instanceof IimmerseView && content.getChildAt(0) == viewGroup || (layoutParams.height <= 0 && allImmerse)) {
                     layoutParams.height = height;
                 } else {

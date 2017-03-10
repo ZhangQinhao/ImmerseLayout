@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
  * 类描述：沉浸布局管理器
  * 创建人：Monke
  * 创建时间：2017/1/17
+ *
  * @version V1.0
  */
 public class ImmerseManager {
@@ -30,7 +31,7 @@ public class ImmerseManager {
     }
 
     private void init(AttributeSet attrs) {
-        if(attrs!=null){
+        if (attrs != null) {
             TypedArray typedArray = viewGroup.getContext().obtainStyledAttributes(attrs, R.styleable.ImmerseTitleLayout);
             allImmerse = typedArray.getBoolean(R.styleable.ImmerseTitleLayout_need_immerse, allImmerse);
             typedArray.recycle();
@@ -73,10 +74,13 @@ public class ImmerseManager {
                 ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
                 FrameLayout content = (FrameLayout) ((Activity) viewGroup.getContext()).findViewById(android.R.id.content);
                 int height = layoutParams.height;
-                if (content.getChildAt(0) instanceof IimmerseView && content.getChildAt(0) == viewGroup || (layoutParams.height <= 0 && allImmerse)) {
-                    layoutParams.height = height;
+                if (content.getChildAt(0) instanceof IimmerseView && content.getChildAt(0) == viewGroup) {
+                    if (allImmerse)
+                        layoutParams.height = height;
+                    else
+                        layoutParams.height = height + StatusBarUtils.getStatus_height();
                 } else {
-                    layoutParams.height = height + StatusBarUtils.getStatus_height();
+                    layoutParams.height = height;
                 }
                 viewGroup.setLayoutParams(layoutParams);
 

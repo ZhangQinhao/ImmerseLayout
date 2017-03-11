@@ -74,11 +74,8 @@ public class ImmerseManager {
                 ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
                 FrameLayout content = (FrameLayout) ((Activity) viewGroup.getContext()).findViewById(android.R.id.content);
                 int height = layoutParams.height;
-                if (content.getChildAt(0) instanceof IimmerseView && content.getChildAt(0) == viewGroup) {
-                    if (allImmerse)
-                        layoutParams.height = height;
-                    else
-                        layoutParams.height = height + StatusBarUtils.getStatus_height();
+                if (content.getChildAt(0) instanceof IimmerseView && content.getChildAt(0) == viewGroup && !allImmerse && layoutParams.height > 0) {
+                    layoutParams.height = height + StatusBarUtils.getStatus_height();
                 } else {
                     layoutParams.height = height;
                 }

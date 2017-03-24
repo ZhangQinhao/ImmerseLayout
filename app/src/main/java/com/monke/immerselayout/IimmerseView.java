@@ -10,8 +10,5 @@ import android.view.ViewGroup;
  */
 public interface IimmerseView {
 
-
     void setImmersePadding(int left, int top, int right, int bottom);
-
-    void setImmerseLayoutParams(ViewGroup.LayoutParams params);
 }

@@ -1,6 +1,7 @@
 package com.monke.immerselayout;
 
 import android.content.Context;
+import android.support.annotation.Px;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
@@ -30,12 +31,12 @@ public class ImmerseTableLayout extends TableLayout implements IimmerseView{
     }
 
     @Override
-    public void setImmersePadding(int left, int top, int right, int bottom) {
-        immerseManager.setImmersePadding(left,top,right,bottom);
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        immerseManager.onMeasureHeight(heightMeasureSpec);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    @Override
-    public void setImmerseLayoutParams(ViewGroup.LayoutParams params) {
-        immerseManager.setImmerseLayoutParams(params);
+    public void setImmersePadding(int left, int top, int right, int bottom) {
+        immerseManager.setImmersePadding(left,top,right,bottom);
     }
 }

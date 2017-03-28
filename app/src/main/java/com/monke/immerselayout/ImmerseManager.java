@@ -22,7 +22,6 @@ public class ImmerseManager {
 
     private int paddingTop = 0;
     private int realHeight = 0;
-    private Boolean isMatch = false;
     private FrameLayout rootView;
 
     public ImmerseManager(ViewGroup viewGroup, AttributeSet attrs) {
@@ -58,13 +57,9 @@ public class ImmerseManager {
         int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
         int tempHeight = View.MeasureSpec.getSize(heightMeasureSpec);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && rootView.getChildAt(0) != viewGroup && heightMode == View.MeasureSpec.EXACTLY && viewGroup.getMeasuredHeight() > 0) {
-            if(viewGroup.getMeasuredHeight()!=tempHeight && !isMatch){
-                isMatch = true;
-            }else{
-                if (realHeight != tempHeight && !isMatch) {
-                    realHeight = tempHeight + StatusBarUtils.getStatus_height();
-                    result = realHeight;
-                }
+            if (viewGroup.getLayoutParams().height >= 0 && realHeight != tempHeight) {
+                realHeight = tempHeight + StatusBarUtils.getStatus_height();
+                result = realHeight;
             }
         }
         return result;
@@ -77,13 +72,5 @@ public class ImmerseManager {
         } else {
             return paddingTop;
         }
-    }
-
-    public Boolean getAllImmerse() {
-        return allImmerse;
-    }
-
-    public void setAllImmerse(Boolean allImmerse) {
-        this.allImmerse = allImmerse;
     }
 }

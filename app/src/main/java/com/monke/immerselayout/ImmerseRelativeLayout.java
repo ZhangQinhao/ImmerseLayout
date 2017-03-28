@@ -2,9 +2,7 @@ package com.monke.immerselayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.Px;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 /**
@@ -48,8 +46,12 @@ public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseVie
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        immerseManager.onMeasureHeight(heightMeasureSpec);
+        int resultHeight =  immerseManager.onMeasureHeight(heightMeasureSpec);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if(resultHeight>0){
+            setMeasuredDimension(widthMeasureSpec, resultHeight);
+            getLayoutParams().height = resultHeight;
+        }
     }
 
     public void setImmersePadding(int left, int top, int right, int bottom) {

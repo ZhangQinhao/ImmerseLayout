@@ -10,7 +10,7 @@ ImmerseTableLayout → TableLayout
 
  - Android Studio  
 
-在build.gradle引入  `compile 'com.zhangmonke:ImmerseLayout:1.0.5'`
+在build.gradle引入  `compile 'com.zhangmonke:ImmerseLayout:1.0.6'`
 
  - eclipse
 

@@ -3,13 +3,15 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.monke.immerselayout.ImmerseLinearLayout
+        android:id="@+id/abc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="vertical"
-        android:background="@drawable/tabcolor">
+        android:background="@drawable/ivbg">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/a"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@mipmap/ic_launcher"
             android:layout_gravity="center_horizontal"/>
     </com.monke.immerselayout.ImmerseLinearLayout>

@@ -33,7 +33,7 @@ publish {
     userOrg = 'zhangmonke'//bintray.com用户名
     groupId = 'com.zhangmonke'//jcenter上的路径
     artifactId = 'ImmerseLayout'//项目名称
-    publishVersion = '1.0.5'//版本号
+    publishVersion = '1.0.6'//版本号
     desc = 'some layout for immerse UI'//描述，不重要
     website = 'https://github.com/ZhangQinhao/ImmerseLayout'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }

@@ -1,18 +1,9 @@
 package com.monke.immerselayout;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.os.Build;
-import android.os.Handler;
-import android.support.annotation.Px;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-
 /**
  * 类描述：沉浸LinearLayout布局
  * 创建人：Monke
@@ -52,8 +43,12 @@ public class ImmerseLinearLayout extends LinearLayout implements IimmerseView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        immerseManager.onMeasureHeight(heightMeasureSpec);
+        int resultHeight =  immerseManager.onMeasureHeight(heightMeasureSpec);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if(resultHeight>0){
+            setMeasuredDimension(widthMeasureSpec, resultHeight);
+            getLayoutParams().height = resultHeight;
+        }
     }
 
     @Override

@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
  */
 public class ImmerseLinearLayout extends LinearLayout implements IimmerseView {
 
-    private ImmerseManager immerseManager;
+    protected ImmerseManager immerseManager;
 
     public ImmerseLinearLayout(Context context) {
         super(context);

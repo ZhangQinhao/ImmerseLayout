@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
  */
 public class ImmerseFrameLayout extends FrameLayout implements IimmerseView {
 
-    private ImmerseManager immerseManager;
+    protected ImmerseManager immerseManager;
 
     public ImmerseFrameLayout(Context context) {
         super(context);

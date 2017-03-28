@@ -11,7 +11,7 @@ import android.widget.TableLayout;
  */
 public class ImmerseTableLayout extends TableLayout implements IimmerseView{
 
-    private ImmerseManager immerseManager;
+    protected ImmerseManager immerseManager;
 
     public ImmerseTableLayout(Context context) {
         super(context);

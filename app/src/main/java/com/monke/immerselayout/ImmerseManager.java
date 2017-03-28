@@ -18,7 +18,7 @@ import android.widget.FrameLayout;
  */
 public class ImmerseManager {
     private ViewGroup viewGroup;
-    private Boolean allImmerse = false;    //默认内部内容不沉浸  默认会设置paddingTop
+    protected Boolean allImmerse = false;    //默认内部内容不沉浸  默认会设置paddingTop
 
     private int paddingTop = 0;
     private int realHeight = 0;

@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
  */
 public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseView{
 
-    private ImmerseManager immerseManager;
+    protected ImmerseManager immerseManager;
 
     public ImmerseRelativeLayout(Context context) {
         super(context);

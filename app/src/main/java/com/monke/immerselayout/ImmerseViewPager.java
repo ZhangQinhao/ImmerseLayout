@@ -4,8 +4,14 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 
+/**
+ * 类描述：沉浸ViewPager布局
+ * 创建人：章钦豪
+ * 创建时间：2019/3/31
+ * @version V1.0
+ */
 public class ImmerseViewPager extends ViewPager implements IimmerseView {
-    protected ImmerseManager immerseManager;
+    private ImmerseManager immerseManager;
 
     public ImmerseViewPager(Context context) {
         super(context);
@@ -32,7 +38,12 @@ public class ImmerseViewPager extends ViewPager implements IimmerseView {
     }
 
     @Override
-    public void setImmersePadding(int left, int top, int right, int bottom) {
+    public void setPadding(int left, int top, int right, int bottom) {
         immerseManager.setImmersePadding(left,top,right,bottom);
+    }
+
+    @Override
+    public void setImmersePadding(int left, int top, int right, int bottom) {
+        super.setPadding(left,top,right,bottom);
     }
 }

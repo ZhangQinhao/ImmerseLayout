@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
  */
 public class ImmerseLinearLayout extends LinearLayout implements IimmerseView {
 
-    protected ImmerseManager immerseManager;
+    private ImmerseManager immerseManager;
 
     public ImmerseLinearLayout(Context context) {
         super(context);
@@ -25,7 +25,6 @@ public class ImmerseLinearLayout extends LinearLayout implements IimmerseView {
         initManager(attrs);
     }
 
-    @SuppressLint("NewApi")
     public ImmerseLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initManager(attrs);
@@ -52,7 +51,12 @@ public class ImmerseLinearLayout extends LinearLayout implements IimmerseView {
     }
 
     @Override
-    public void setImmersePadding(int left, int top, int right, int bottom) {
+    public void setPadding(int left, int top, int right, int bottom) {
         immerseManager.setImmersePadding(left,top,right,bottom);
+    }
+
+    @Override
+    public void setImmersePadding(int left, int top, int right, int bottom) {
+        super.setPadding(left,top,right,bottom);
     }
 }

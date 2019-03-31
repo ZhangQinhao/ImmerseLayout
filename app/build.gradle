@@ -2,14 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 2
+        versionName "2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -24,16 +24,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 //添加
 publish {
     userOrg = 'zhangmonke'//bintray.com用户名
     groupId = 'com.zhangmonke'//jcenter上的路径
     artifactId = 'ImmerseLayout'//项目名称
-    publishVersion = '1.1.1'//版本号
+    publishVersion = '2.0.0'//版本号
     desc = 'some layout for immerse UI'//描述，不重要
     website = 'https://github.com/ZhangQinhao/ImmerseLayout'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }

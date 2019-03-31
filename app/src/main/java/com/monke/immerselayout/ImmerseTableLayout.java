@@ -4,14 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TableLayout;
 /**
- * 类描述：沉浸RelativeLayout布局
+ * 类描述：沉浸TableLayout布局
  * 创建人：章钦豪
  * 创建时间：2017/2/7
  * @version V1.0
  */
 public class ImmerseTableLayout extends TableLayout implements IimmerseView{
 
-    protected ImmerseManager immerseManager;
+    private ImmerseManager immerseManager;
 
     public ImmerseTableLayout(Context context) {
         super(context);
@@ -37,7 +37,13 @@ public class ImmerseTableLayout extends TableLayout implements IimmerseView{
         }
     }
 
-    public void setImmersePadding(int left, int top, int right, int bottom) {
+    @Override
+    public void setPadding(int left, int top, int right, int bottom) {
         immerseManager.setImmersePadding(left,top,right,bottom);
+    }
+
+    @Override
+    public void setImmersePadding(int left, int top, int right, int bottom) {
+        super.setPadding(left,top,right,bottom);
     }
 }

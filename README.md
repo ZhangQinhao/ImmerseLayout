@@ -10,11 +10,14 @@ ImmerseTableLayout → TableLayout
 
  - Android Studio  
 
-在build.gradle引入  `compile 'com.zhangmonke:ImmerseLayout:1.1.1'`
+在build.gradle引入  `implementation 'com.zhangmonke:ImmerseLayout:2.0.0'`
 
  - eclipse
 
 建议使用As，方便版本更新。实在不行，只有复制粘贴源码了。
+ - 注意
+ 在从2.0.0版本开始，`setImmersePadding(int left, int top, int right, int bottom);`方法改为`setPadding(int left, int top, int right, int bottom)`
+ 新增刘海屏等异型屏兼容，`app:need_immerse_notchscreen="false"` 表明如果是异型屏，则不沉浸
 
 ### 如果仅仅是需要底层布局的background沉浸，则将最外层布局替换为相应的ImmerseLayout布局，其余布局不变。
 ![enter description here][1]
@@ -87,7 +90,29 @@ ImmerseTableLayout → TableLayout
     </com.monke.immerselayout.ImmerseLinearLayout>
 </LinearLayout>
 ```
-
+### 如果只要自定义颜色沉浸
+![enter description here][4]
+```stylus
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.monke.immerselayout.ImmerseFrameLayout
+        android:id="@+id/abc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:need_immerse_notchscreen="true"
+        android:background="@drawable/tabcolor">
+        <!--android:background="#ff00ff"-->
+    </com.monke.immerselayout.ImmerseFrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义颜色"/>
+</LinearLayout>
+```
 
   
 
@@ -95,3 +120,4 @@ ImmerseTableLayout → TableLayout
   [1]: ./images/1.png "1.png"
   [2]: ./images/2.png "2.png"
   [3]: ./images/3.png "3.png"
+  [4]: ./images/4.png "4.png"

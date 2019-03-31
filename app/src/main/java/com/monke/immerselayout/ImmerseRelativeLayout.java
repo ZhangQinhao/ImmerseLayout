@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
  */
 public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseView{
 
-    protected ImmerseManager immerseManager;
+    private ImmerseManager immerseManager;
 
     public ImmerseRelativeLayout(Context context) {
         super(context);
@@ -27,12 +27,6 @@ public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseVie
 
     public ImmerseRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initManager(attrs);
-    }
-
-    @SuppressLint("NewApi")
-    public ImmerseRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes, ImmerseManager immerseManager) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         initManager(attrs);
     }
 
@@ -54,7 +48,13 @@ public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseVie
         }
     }
 
-    public void setImmersePadding(int left, int top, int right, int bottom) {
+    @Override
+    public void setPadding(int left, int top, int right, int bottom) {
         immerseManager.setImmersePadding(left,top,right,bottom);
+    }
+
+    @Override
+    public void setImmersePadding(int left, int top, int right, int bottom) {
+        super.setPadding(left,top,right,bottom);
     }
 }

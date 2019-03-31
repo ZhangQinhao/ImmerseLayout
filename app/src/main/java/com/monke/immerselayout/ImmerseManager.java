@@ -3,6 +3,7 @@ package com.monke.immerselayout;
 import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +19,18 @@ import android.widget.FrameLayout;
  */
 public class ImmerseManager {
     private ViewGroup viewGroup;
-    private Boolean allImmerse = false;    //默认内部内容不沉浸  默认会设置paddingTop
+    private IimmerseView immerseView;
+    private boolean allImmerse = false;    //默认内部内容不沉浸  默认会设置paddingTop
+    private boolean immerseNotchScreen = true;   //默认如果是异形屏 也要沉浸式
 
     private int paddingTop = 0;
     private int realHeight = 0;
     private FrameLayout rootView;
 
-    public ImmerseManager(ViewGroup viewGroup, AttributeSet attrs) {
+    public ImmerseManager(@NonNull ViewGroup viewGroup, AttributeSet attrs) {
         if (viewGroup instanceof IimmerseView) {
             this.viewGroup = viewGroup;
+            this.immerseView = (IimmerseView) this.viewGroup;
             init(attrs);
         } else {
             throw new RuntimeException("Viewgroup并未实现IimmerseView接口");
@@ -37,26 +41,30 @@ public class ImmerseManager {
         if (attrs != null) {
             TypedArray typedArray = viewGroup.getContext().obtainStyledAttributes(attrs, R.styleable.ImmerseTitleLayout);
             allImmerse = typedArray.getBoolean(R.styleable.ImmerseTitleLayout_need_immerse, allImmerse);
+            immerseNotchScreen = typedArray.getBoolean(R.styleable.ImmerseTitleLayout_need_immerse_notchscreen,immerseNotchScreen);
             typedArray.recycle();
         }
         paddingTop = viewGroup.getPaddingTop();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
+                && (immerseNotchScreen || !StatusBarUtils.isNotchScreen(viewGroup.getContext()))) {
             rootView = (FrameLayout) ((Activity) viewGroup.getContext()).findViewById(android.R.id.content);
             ((Activity) viewGroup.getContext()).getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            viewGroup.setPadding(viewGroup.getPaddingLeft(), getPaddingTop(paddingTop), viewGroup.getPaddingRight(), viewGroup.getPaddingBottom());
+            immerseView.setImmersePadding(viewGroup.getPaddingLeft(), getPaddingTop(paddingTop), viewGroup.getPaddingRight(), viewGroup.getPaddingBottom());
         }
     }
 
     public void setImmersePadding(int left, int top, int right, int bottom) {
-        viewGroup.setPadding(left, getPaddingTop(top), right, bottom);
+        immerseView.setImmersePadding(left, getPaddingTop(top), right, bottom);
     }
 
     public int onMeasureHeight(int heightMeasureSpec) {
         int result = -1;
         int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
         int tempHeight = View.MeasureSpec.getSize(heightMeasureSpec);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && rootView.getChildAt(0) != viewGroup && heightMode == View.MeasureSpec.EXACTLY && viewGroup.getMeasuredHeight() > 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
+                && (immerseNotchScreen || !StatusBarUtils.isNotchScreen(viewGroup.getContext()))
+                && rootView.getChildAt(0) != viewGroup && heightMode == View.MeasureSpec.EXACTLY && viewGroup.getMeasuredHeight() > 0) {
             if (viewGroup.getLayoutParams().height >= 0 && realHeight != tempHeight) {
                 realHeight = tempHeight + StatusBarUtils.getStatus_height();
                 result = realHeight;
@@ -67,7 +75,8 @@ public class ImmerseManager {
 
     private int getPaddingTop(int paddingtop) {
         paddingTop = paddingtop;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && !allImmerse) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && !allImmerse
+                && (immerseNotchScreen || !StatusBarUtils.isNotchScreen(viewGroup.getContext()))) {
             return paddingTop + StatusBarUtils.getStatus_height();
         } else {
             return paddingTop;

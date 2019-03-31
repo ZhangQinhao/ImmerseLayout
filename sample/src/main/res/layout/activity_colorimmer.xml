@@ -4,19 +4,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.monke.immerselayout.ImmerseLinearLayout
+    <com.monke.immerselayout.ImmerseFrameLayout
         android:id="@+id/abc"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:need_immerse_notchscreen="true"
         android:background="@drawable/tabcolor">
-        <ImageView
-            android:id="@+id/a"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#ff00ff"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="fitXY"/>
-    </com.monke.immerselayout.ImmerseLinearLayout>
+        <!--android:background="#ff00ff"-->
+    </com.monke.immerselayout.ImmerseFrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义颜色"/>
 </LinearLayout>

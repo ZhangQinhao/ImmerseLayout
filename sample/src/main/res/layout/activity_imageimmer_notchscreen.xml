@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    app:need_immerse_notchscreen="true"
+    app:need_immerse_notchscreen="false"
     app:need_immerse="true">
     <ImageView
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
     <com.monke.immerselayout.ImmerseLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:need_immerse_notchscreen="true"
+        app:need_immerse_notchscreen="false"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"

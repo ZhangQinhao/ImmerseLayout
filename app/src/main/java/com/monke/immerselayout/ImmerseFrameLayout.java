@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
  */
 public class ImmerseFrameLayout extends FrameLayout implements IimmerseView {
 
-    protected ImmerseManager immerseManager;
+    private ImmerseManager immerseManager;
 
     public ImmerseFrameLayout(Context context) {
         super(context);
@@ -50,7 +50,13 @@ public class ImmerseFrameLayout extends FrameLayout implements IimmerseView {
         }
     }
 
-    public void setImmersePadding(int left, int top, int right, int bottom) {
+    @Override
+    public void setPadding(int left, int top, int right, int bottom) {
         immerseManager.setImmersePadding(left,top,right,bottom);
+    }
+
+    @Override
+    public void setImmersePadding(int left, int top, int right, int bottom) {
+        super.setPadding(left,top,right,bottom);
     }
 }

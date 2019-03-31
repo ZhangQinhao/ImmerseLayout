@@ -2,7 +2,9 @@
 <resources>
     <!--Title布局相关-->
     <declare-styleable name="ImmerseTitleLayout">
-        <!--true   则沉浸式布局中内容也一起沉浸在状态栏中-->
+        <!--true则沉浸式布局中内容也一起沉浸在状态栏中-->
         <attr name="need_immerse" format="boolean"/>
+        <!--针对刘海平等是否需要沉浸式状态栏-->
+        <attr name="need_immerse_notchscreen" format="boolean"/>
     </declare-styleable>
 </resources>

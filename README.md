@@ -1,10 +1,10 @@
 # ImmerseLayout
 满足普通开发者对于沉浸式界面的开发
-ImmerserLinearLayout   →  LinearLayout
-ImmerserFrameLayout  →  FrameLayout
-ImmerseRelativeLayout  →  RelativeLayout
-ImmerseTableLayout → TableLayout
-在需要沉浸的页面合理使用ImmerseLayout替换原本布局。  
+ImmerserLinearLayout   →  LinearLayout  
+ImmerserFrameLayout  →  FrameLayout  
+ImmerseRelativeLayout  →  RelativeLayout  
+ImmerseTableLayout → TableLayout  
+在需要沉浸的页面合理使用ImmerseLayout替换原本布局。   
   
 ### 引入  
 
@@ -41,7 +41,7 @@ ImmerseTableLayout → TableLayout
 ```
 
 ### 如果对背景图片显示比例要求较高，则需要使用双重ImmerseLayout嵌套
-一般可以用在底部是需要全屏沉浸的视频或者录像
+一般可以用在底部是需要全屏沉浸的视频或者录像  
 ![enter description here][2]
 
 ``` stylus

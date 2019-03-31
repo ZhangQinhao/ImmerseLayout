@@ -15,9 +15,9 @@ ImmerseTableLayout → TableLayout
  - eclipse
 
 建议使用As，方便版本更新。实在不行，只有复制粘贴源码了。
- - 注意
- 在从2.0.0版本开始，`setImmersePadding(int left, int top, int right, int bottom);`方法改为`setPadding(int left, int top, int right, int bottom)`
- 新增刘海屏等异型屏兼容，`app:need_immerse_notchscreen="false"` 表明如果是异型屏，则不沉浸
+### 注意
+ - 在从2.0.0版本开始，`setImmersePadding(int left, int top, int right, int bottom);`方法改为`setPadding(int left, int top, int right, int bottom)`
+ - 新增刘海屏等异型屏兼容，`app:need_immerse_notchscreen="false"` 表明如果是异型屏，则不沉浸
 
 ### 如果仅仅是需要底层布局的background沉浸，则将最外层布局替换为相应的ImmerseLayout布局，其余布局不变。
 ![enter description here][1]
@@ -41,6 +41,7 @@ ImmerseTableLayout → TableLayout
 ```
 
 ### 如果对背景图片显示比例要求较高，则需要使用双重ImmerseLayout嵌套
+一般可以用在底部是需要全屏沉浸的视频或者录像
 ![enter description here][2]
 
 ``` stylus
@@ -113,6 +114,7 @@ ImmerseTableLayout → TableLayout
         android:text="自定义颜色"/>
 </LinearLayout>
 ```
+具体用法参照Sample代码
 
   
 

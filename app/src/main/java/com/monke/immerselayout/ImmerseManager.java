@@ -58,8 +58,8 @@ public class ImmerseManager {
         immerseView.setImmersePadding(left, getPaddingTop(top), right, bottom);
     }
 
-    public int onMeasureHeight(int heightMeasureSpec) {
-        int result = -1;
+    public MeasureHeightResult onMeasureHeight(int heightMeasureSpec) {
+        MeasureHeightResult measureHeightResult = new MeasureHeightResult();
         int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
         int tempHeight = View.MeasureSpec.getSize(heightMeasureSpec);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
@@ -67,10 +67,11 @@ public class ImmerseManager {
                 && rootView.getChildAt(0) != viewGroup && heightMode == View.MeasureSpec.EXACTLY && viewGroup.getMeasuredHeight() > 0) {
             if (viewGroup.getLayoutParams().height >= 0 && realHeight != tempHeight) {
                 realHeight = tempHeight + StatusBarUtils.getStatus_height();
-                result = realHeight;
+                measureHeightResult.setHeight(realHeight);
+                measureHeightResult.setSuccess(true);
             }
         }
-        return result;
+        return measureHeightResult;
     }
 
     private int getPaddingTop(int paddingtop) {

@@ -40,12 +40,12 @@ public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseVie
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int resultHeight =  immerseManager.onMeasureHeight(heightMeasureSpec);
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if(resultHeight>0){
-            setMeasuredDimension(widthMeasureSpec, resultHeight);
-            getLayoutParams().height = resultHeight;
+        MeasureHeightResult resultHeight =  immerseManager.onMeasureHeight(heightMeasureSpec);
+        if(resultHeight.isSuccess()){
+            setMeasuredDimension(widthMeasureSpec, resultHeight.getHeight());
+            getLayoutParams().height = resultHeight.getHeight();
         }
+        super.onMeasure(widthMeasureSpec, resultHeight.isSuccess()?resultHeight.getHeight():heightMeasureSpec);
     }
 
     @Override

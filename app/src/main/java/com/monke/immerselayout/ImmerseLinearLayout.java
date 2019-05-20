@@ -3,6 +3,7 @@ package com.monke.immerselayout;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 /**
  * 类描述：沉浸LinearLayout布局
@@ -44,10 +45,9 @@ public class ImmerseLinearLayout extends LinearLayout implements IimmerseView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         MeasureHeightResult resultHeight =  immerseManager.onMeasureHeight(heightMeasureSpec);
         if(resultHeight.isSuccess()){
-            setMeasuredDimension(widthMeasureSpec, resultHeight.getHeight());
-            getLayoutParams().height = resultHeight.getHeight();
+            heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), View.MeasureSpec.EXACTLY);
         }
-        super.onMeasure(widthMeasureSpec, resultHeight.isSuccess()?resultHeight.getHeight():heightMeasureSpec);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override

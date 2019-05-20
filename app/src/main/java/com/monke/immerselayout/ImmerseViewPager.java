@@ -3,6 +3,7 @@ package com.monke.immerselayout;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.View;
 
 /**
  * 类描述：沉浸ViewPager布局
@@ -31,10 +32,9 @@ public class ImmerseViewPager extends ViewPager implements IimmerseView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         MeasureHeightResult resultHeight =  immerseManager.onMeasureHeight(heightMeasureSpec);
         if(resultHeight.isSuccess()){
-            setMeasuredDimension(widthMeasureSpec, resultHeight.getHeight());
-            getLayoutParams().height = resultHeight.getHeight();
+            heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), View.MeasureSpec.EXACTLY);
         }
-        super.onMeasure(widthMeasureSpec, resultHeight.isSuccess()?resultHeight.getHeight():heightMeasureSpec);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override

@@ -64,14 +64,15 @@ public class ImmerseManager {
         int tempHeight = View.MeasureSpec.getSize(heightMeasureSpec);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
                 && (immerseNotchScreen || !StatusBarUtils.isNotchScreen(viewGroup.getContext()))
-                && rootView.getChildAt(0) != viewGroup && heightMode == View.MeasureSpec.EXACTLY && viewGroup.getMeasuredHeight() > 0) {
-            if (viewGroup.getLayoutParams().height >= 0 && realHeight != tempHeight) {
+                && rootView.getChildAt(0) != viewGroup && heightMode == View.MeasureSpec.EXACTLY) {
+            if (realHeight != tempHeight) {
                 realHeight = tempHeight + StatusBarUtils.getStatus_height();
                 measureHeightResult.setHeight(realHeight);
                 measureHeightResult.setSuccess(true);
             }
         }
         return measureHeightResult;
+
     }
 
     private int getPaddingTop(int paddingtop) {

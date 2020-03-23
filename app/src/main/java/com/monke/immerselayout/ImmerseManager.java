@@ -41,7 +41,7 @@ public class ImmerseManager {
         if (attrs != null) {
             TypedArray typedArray = viewGroup.getContext().obtainStyledAttributes(attrs, R.styleable.ImmerseTitleLayout);
             allImmerse = typedArray.getBoolean(R.styleable.ImmerseTitleLayout_need_immerse, allImmerse);
-            immerseNotchScreen = typedArray.getBoolean(R.styleable.ImmerseTitleLayout_need_immerse_notchscreen,immerseNotchScreen);
+            immerseNotchScreen = typedArray.getBoolean(R.styleable.ImmerseTitleLayout_need_immerse_notchscreen, immerseNotchScreen);
             typedArray.recycle();
         }
         paddingTop = viewGroup.getPaddingTop();
@@ -72,7 +72,6 @@ public class ImmerseManager {
             }
         }
         return measureHeightResult;
-
     }
 
     private int getPaddingTop(int paddingtop) {

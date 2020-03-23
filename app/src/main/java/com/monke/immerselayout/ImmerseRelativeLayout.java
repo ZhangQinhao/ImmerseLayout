@@ -3,16 +3,15 @@ package com.monke.immerselayout;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 /**
- * 类描述：沉浸RelativeLayout布局
- * 创建人：章钦豪
- * 创建时间：2017/2/7
- * @version V1.0
+ * 沉浸式RelativeLayout
+ * 作者:zhangqinhao
+ * 日期:2019-03-29
  */
-public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseView{
+public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseView {
 
     private ImmerseManager immerseManager;
 
@@ -31,30 +30,32 @@ public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseVie
         initManager(attrs);
     }
 
-    public void initManager(AttributeSet attrs){
-        immerseManager = new ImmerseManager(this,attrs);
+    public void initManager(AttributeSet attrs) {
+        immerseManager = new ImmerseManager(this, attrs);
     }
 
     @SuppressLint("NewApi")
     public ImmerseRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        MeasureHeightResult resultHeight =  immerseManager.onMeasureHeight(heightMeasureSpec);
-        if(resultHeight.isSuccess()){
-            heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), View.MeasureSpec.EXACTLY);
+        MeasureHeightResult resultHeight = immerseManager.onMeasureHeight(heightMeasureSpec);
+        ViewGroup.LayoutParams layoutParams = getLayoutParams();
+        if (resultHeight.isSuccess() && layoutParams != null && layoutParams.height != ViewGroup.LayoutParams.MATCH_PARENT) {
+            heightMeasureSpec = MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
     public void setPadding(int left, int top, int right, int bottom) {
-        immerseManager.setImmersePadding(left,top,right,bottom);
+        immerseManager.setImmersePadding(left, top, right, bottom);
     }
 
     @Override
     public void setImmersePadding(int left, int top, int right, int bottom) {
-        super.setPadding(left,top,right,bottom);
+        super.setPadding(left, top, right, bottom);
     }
 }

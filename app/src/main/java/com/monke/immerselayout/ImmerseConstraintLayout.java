@@ -1,26 +1,30 @@
 package com.monke.immerselayout;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 
 /**
- * 沉浸式TableLayout
+ * 沉浸式ConstraintLayout
  * 作者:zhangqinhao
  * 日期:2019-03-29
  */
-public class ImmerseTableLayout extends TableLayout implements IimmerseView {
-
+public class ImmerseConstraintLayout extends ConstraintLayout implements IimmerseView {
     private ImmerseManager immerseManager;
 
-    public ImmerseTableLayout(Context context) {
+    public ImmerseConstraintLayout(Context context) {
         super(context);
         initManager(null);
     }
 
-    public ImmerseTableLayout(Context context, AttributeSet attrs) {
+    public ImmerseConstraintLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initManager(attrs);
+    }
+
+    public ImmerseConstraintLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         initManager(attrs);
     }
 

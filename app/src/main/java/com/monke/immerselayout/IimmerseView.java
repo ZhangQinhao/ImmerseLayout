@@ -1,12 +1,9 @@
 package com.monke.immerselayout;
 
-import android.view.ViewGroup;
-
 /**
- * 类描述：沉浸布局必要接口
- * 创建人：Monke
- * 创建时间：2017/1/17
- * @version V1.0
+ * 沉浸布局必要接口
+ * 作者:zhangqinhao
+ * 日期:2019-03-29
  */
 public interface IimmerseView {
 

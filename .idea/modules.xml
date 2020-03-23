@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-ImmerseLayout.iml" filepath="$PROJECT_DIR$/Android-ImmerseLayout.iml" group="ImmerseLayout" />
       <module fileurl="file://$PROJECT_DIR$/ImmerseLayout.iml" filepath="$PROJECT_DIR$/ImmerseLayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/ImmerseLayout-app.iml" filepath="$PROJECT_DIR$/app/ImmerseLayout-app.iml" group="ImmerseLayout/app" />
+      <module fileurl="file://$PROJECT_DIR$/sample/ImmerseLayout-sample.iml" filepath="$PROJECT_DIR$/sample/ImmerseLayout-sample.iml" group="ImmerseLayout/sample" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>

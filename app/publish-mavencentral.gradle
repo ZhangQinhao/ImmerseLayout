@@ -12,7 +12,7 @@ task androidSourcesJar(type: Jar) {
 ext {path=
     PUBLISH_GROUP_ID = 'io.github.zhangqinhao'
     PUBLISH_ARTIFACT_ID = 'ImmerseLayout'
-    PUBLISH_VERSION = '3.0.0'
+    PUBLISH_VERSION = '3.0.1'
 }
 
 //--- 修改配置二 ---

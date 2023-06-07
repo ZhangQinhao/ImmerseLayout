@@ -1,6 +1,7 @@
 package com.monke.immerselayout;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -48,10 +49,13 @@ public class ImmerseManager {
         paddingTop = viewGroup.getPaddingTop();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
                 && (immerseNotchScreen || !StatusBarUtils.isNotchScreen(viewGroup.getContext()))) {
-            rootView = (FrameLayout) ((Activity) viewGroup.getContext()).findViewById(android.R.id.content);
-            ((Activity) viewGroup.getContext()).getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            immerseView.setImmersePadding(viewGroup.getPaddingLeft(), getPaddingTop(paddingTop), viewGroup.getPaddingRight(), viewGroup.getPaddingBottom());
+            Context context = viewGroup.getContext();
+            if (context instanceof Activity) {
+                rootView = ((Activity) context).findViewById(android.R.id.content);
+                ((Activity) viewGroup.getContext()).getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                        WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                immerseView.setImmersePadding(viewGroup.getPaddingLeft(), getPaddingTop(paddingTop), viewGroup.getPaddingRight(), viewGroup.getPaddingBottom());
+            }
         }
     }
 

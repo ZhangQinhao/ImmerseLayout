@@ -2,9 +2,10 @@ package com.monke.immerselayout;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
@@ -30,6 +31,11 @@ public class ImmerseConstraintLayout extends ConstraintLayout implements Immerse
         initManager(attrs);
     }
 
+    public ImmerseConstraintLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        initManager(attrs);
+    }
+
     public void initManager(AttributeSet attrs) {
         immerseManager = new ImmerseManager(this, attrs);
     }
@@ -39,7 +45,7 @@ public class ImmerseConstraintLayout extends ConstraintLayout implements Immerse
         MeasureHeightResult resultHeight = immerseManager.onMeasureHeight(heightMeasureSpec);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (resultHeight.isSuccess() && layoutParams != null && layoutParams.height != ViewGroup.LayoutParams.MATCH_PARENT) {
-            heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), View.MeasureSpec.EXACTLY);
+            heightMeasureSpec = MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }

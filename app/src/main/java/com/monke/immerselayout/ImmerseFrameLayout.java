@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
  * 作者:zhangqinhao
  * 日期:2019-03-29
  */
-public class ImmerseFrameLayout extends FrameLayout implements IimmerseView {
+public class ImmerseFrameLayout extends FrameLayout implements ImmerseView {
 
     private ImmerseManager immerseManager;
 

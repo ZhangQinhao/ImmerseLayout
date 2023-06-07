@@ -5,12 +5,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.view.DisplayCutout;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -90,7 +91,7 @@ public class StatusBarUtils {
     private static DisplayCutout isAndroidP(Context context) {
         try{
             View decorView = ((Activity)context).getWindow().getDecorView();
-            if (decorView != null && android.os.Build.VERSION.SDK_INT >= 28) {
+            if (decorView != null && Build.VERSION.SDK_INT >= 28) {
                 WindowInsets windowInsets = decorView.getRootWindowInsets();
                 if (windowInsets != null)
                     return windowInsets.getDisplayCutout();

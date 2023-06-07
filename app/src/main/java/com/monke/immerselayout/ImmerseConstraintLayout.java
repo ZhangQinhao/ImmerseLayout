@@ -1,16 +1,18 @@
 package com.monke.immerselayout;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * 沉浸式ConstraintLayout
  * 作者:zhangqinhao
  * 日期:2019-03-29
  */
-public class ImmerseConstraintLayout extends ConstraintLayout implements IimmerseView {
+public class ImmerseConstraintLayout extends ConstraintLayout implements ImmerseView {
     private ImmerseManager immerseManager;
 
     public ImmerseConstraintLayout(Context context) {
@@ -37,7 +39,7 @@ public class ImmerseConstraintLayout extends ConstraintLayout implements Iimmers
         MeasureHeightResult resultHeight = immerseManager.onMeasureHeight(heightMeasureSpec);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (resultHeight.isSuccess() && layoutParams != null && layoutParams.height != ViewGroup.LayoutParams.MATCH_PARENT) {
-            heightMeasureSpec = MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), MeasureSpec.EXACTLY);
+            heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(resultHeight.getHeight(), View.MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }

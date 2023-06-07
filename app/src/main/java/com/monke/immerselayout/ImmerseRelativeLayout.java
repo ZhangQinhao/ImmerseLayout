@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
  * 作者:zhangqinhao
  * 日期:2019-03-29
  */
-public class ImmerseRelativeLayout extends RelativeLayout implements IimmerseView {
+public class ImmerseRelativeLayout extends RelativeLayout implements ImmerseView {
 
     private ImmerseManager immerseManager;
 

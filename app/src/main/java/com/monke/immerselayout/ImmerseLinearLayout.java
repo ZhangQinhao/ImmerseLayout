@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
  * 作者:zhangqinhao
  * 日期:2019-03-29
  */
-public class ImmerseLinearLayout extends LinearLayout implements IimmerseView {
+public class ImmerseLinearLayout extends LinearLayout implements ImmerseView {
 
     private ImmerseManager immerseManager;
 

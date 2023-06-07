@@ -1,7 +1,8 @@
 package com.monke.immerselayoutsample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * 创建人：章钦豪

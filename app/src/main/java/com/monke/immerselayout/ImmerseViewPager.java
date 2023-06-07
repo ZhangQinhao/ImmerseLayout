@@ -1,17 +1,17 @@
 package com.monke.immerselayout;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.viewpager.widget.ViewPager;
+
 /**
  * 沉浸式ViewPager
- * 作者:zhangqinhao
  * 日期:2019-03-29
  */
-public class ImmerseViewPager extends ViewPager implements IimmerseView {
+public class ImmerseViewPager extends ViewPager implements ImmerseView {
     private ImmerseManager immerseManager;
 
     public ImmerseViewPager(Context context) {

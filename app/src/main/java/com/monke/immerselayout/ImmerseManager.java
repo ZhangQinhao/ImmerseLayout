@@ -3,12 +3,13 @@ package com.monke.immerselayout;
 import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
 
 /**
  * 类描述：沉浸布局管理器
@@ -19,7 +20,7 @@ import android.widget.FrameLayout;
  */
 public class ImmerseManager {
     private ViewGroup viewGroup;
-    private IimmerseView immerseView;
+    private ImmerseView immerseView;
     private boolean allImmerse = false;    //默认内部内容不沉浸  默认会设置paddingTop
     private boolean immerseNotchScreen = true;   //默认如果是异形屏 也要沉浸式
 
@@ -28,9 +29,9 @@ public class ImmerseManager {
     private FrameLayout rootView;
 
     public ImmerseManager(@NonNull ViewGroup viewGroup, AttributeSet attrs) {
-        if (viewGroup instanceof IimmerseView) {
+        if (viewGroup instanceof ImmerseView) {
             this.viewGroup = viewGroup;
-            this.immerseView = (IimmerseView) this.viewGroup;
+            this.immerseView = (ImmerseView) this.viewGroup;
             init(attrs);
         } else {
             throw new RuntimeException("Viewgroup并未实现IimmerseView接口");
@@ -62,7 +63,7 @@ public class ImmerseManager {
         MeasureHeightResult measureHeightResult = new MeasureHeightResult();
         int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
         int tempHeight = View.MeasureSpec.getSize(heightMeasureSpec);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
+        if (viewGroup.getContext() != null && viewGroup.getContext() instanceof Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
                 && (immerseNotchScreen || !StatusBarUtils.isNotchScreen(viewGroup.getContext()))
                 && rootView.getChildAt(0) != viewGroup && heightMode == View.MeasureSpec.EXACTLY) {
             if (realHeight != tempHeight) {
@@ -76,7 +77,7 @@ public class ImmerseManager {
 
     private int getPaddingTop(int paddingtop) {
         paddingTop = paddingtop;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && !allImmerse
+        if (viewGroup.getContext() != null && viewGroup.getContext() instanceof Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && !allImmerse
                 && (immerseNotchScreen || !StatusBarUtils.isNotchScreen(viewGroup.getContext()))) {
             return paddingTop + StatusBarUtils.getStatus_height();
         } else {

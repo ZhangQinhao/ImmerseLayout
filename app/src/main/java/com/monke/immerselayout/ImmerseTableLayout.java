@@ -10,7 +10,7 @@ import android.widget.TableLayout;
  * 作者:zhangqinhao
  * 日期:2019-03-29
  */
-public class ImmerseTableLayout extends TableLayout implements IimmerseView {
+public class ImmerseTableLayout extends TableLayout implements ImmerseView {
 
     private ImmerseManager immerseManager;
 

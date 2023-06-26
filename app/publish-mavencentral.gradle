@@ -2,6 +2,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 task androidSourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
     from android.sourceSets.main.java.source
 
     exclude "**/R.class"  //排除`R.class`
@@ -12,7 +13,7 @@ task androidSourcesJar(type: Jar) {
 ext {path=
     PUBLISH_GROUP_ID = 'io.github.zhangqinhao'
     PUBLISH_ARTIFACT_ID = 'ImmerseLayout'
-    PUBLISH_VERSION = '3.0.1'
+    PUBLISH_VERSION = '3.0.2'
 }
 
 //--- 修改配置二 ---
